@@ -1,0 +1,19 @@
+node_modules
+.next
+out
+build
+coverage
+pnpm-lock.yaml
+next-env.d.ts
+.stryker-tmp
+reports
+
+# Role prompts and vendored skills are formatted by their source, not here.
+# This repo's own skills are the add-* ones and are checked like any other markdown.
+.agents/agents
+.agents/skills/*/SKILL.md
+!.agents/skills/add-*/SKILL.md
+
+# local-only files, not part of the repo
+.omc
+task-description.md

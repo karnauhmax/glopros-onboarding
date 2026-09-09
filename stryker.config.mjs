@@ -1,0 +1,25 @@
+const config = {
+  packageManager: 'pnpm',
+  plugins: ['@stryker-mutator/jest-runner', '@stryker-mutator/typescript-checker'],
+  testRunner: 'jest',
+  jest: { configFile: 'jest.config.ts' },
+  mutate: [
+    'src/features/**/{model,validation,storage}/**/*.{ts,tsx}',
+    'src/shared/{form,lib}/**/*.{ts,tsx}',
+    '!**/__tests__/**',
+    '!**/*.test.*',
+    '!**/*.d.ts',
+    '!**/index.ts',
+  ],
+  coverageAnalysis: 'perTest',
+  checkers: ['typescript'],
+  tsconfigFile: 'tsconfig.json',
+  reporters: ['clear-text', 'progress', 'html'],
+  htmlReporter: { fileName: 'reports/mutation/index.html' },
+  thresholds: { high: 80, low: 60, break: 60 },
+  incremental: true,
+  incrementalFile: 'reports/stryker-incremental.json',
+  tempDirName: '.stryker-tmp',
+  ignorePatterns: ['.next', 'coverage', 'reports', '.stryker-tmp', '.claude', '.agents'],
+};
+export default config;
